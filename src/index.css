@@ -1,49 +1,73 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .calculator-container {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 350px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
+}
+
+h1 {
+  color: #222;
+  font-size: 36px;
+  margin-bottom: 15px;
 }
 
 h2 {
-    color: #333;
-    font-size: 22px;
-    margin-bottom: 15px;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 input {
-    width: 84%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 60px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.copy-icon {
+  cursor: pointer;
+  font-size: 18px;
+  color: #007bff;
+  position: absolute;
+  right: 10px;
+}
+
+.copy-icon:hover {
+  color: #0056b3;
 }
 
 button {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-    width: 90%;
-    margin-top: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+  width: 100%;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -51,8 +75,37 @@ button:hover {
 }
 
 .result {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #28a745;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #28a745;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result .copy-icon {
+  position: absolute;
+  margin-left: 50px;
+  right: 10px;
+  top:0;
+
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.result-container {
+  position: relative;
+  display: flex;
+  align-items: center;
 }

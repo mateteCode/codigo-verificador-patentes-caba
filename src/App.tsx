@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { calcularDigitoVerificador, validarPatente } from './helpers/agip-patente';
+import { FaRegCopy } from "react-icons/fa";
 
-
+const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    alert("Copiado al portapapeles: " + text);
+  };
 
 const FormularioPatente: React.FC = () => {
   const [patente, setPatente] = useState<string>('');
@@ -18,31 +22,36 @@ const FormularioPatente: React.FC = () => {
     }
 
     setError('');
-    //const digito = calcularDigitoVerificador(patente.replace(/[A-Za-z]/g, '0'));
     const digito = calcularDigitoVerificador(patente);
     setDigitoVerificador(digito);
   };
 
   return (
     <div className='calculator-container'>
-      <h2>Calculadora de Dígito Verificador de patentes radicadas en CABA</h2>
+      <h1>Calculadora de Dígito Verificador</h1>
+      <h2> de patentes radicadas en CABA</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          Ingrese la patente:
+        <div className='input-container'>
           <input
-            type="text"
-            value={patente}
-            onChange={(e) => setPatente(e.target.value.toUpperCase())}
-            minLength={6}
-            maxLength={7}
+          type="text"
+          value={patente}
+          onChange={(e) => setPatente(e.target.value.toUpperCase())}
+          minLength={6}
+          maxLength={7}
+          placeholder="Ingrese la patente"
           />
-        </label>
+          {digitoVerificador && <FaRegCopy className="copy-icon" onClick={() => handleCopy(patente)} />}
+        </div>
         <button type="submit">Calcular</button>
       </form>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {digitoVerificador && (
-        <p className='result'>Dígito verificador: {digitoVerificador}</p>
+        <div className='result-container'>
+          <p className='result'>Dígito verificador: {digitoVerificador}</p>
+          <FaRegCopy className="copy-icon" onClick={() => handleCopy(digitoVerificador)} />
+        </div>
+
       )}
     </div>
   );
